@@ -140,13 +140,10 @@ function percentToResult() {
 // ------------------------------
 // Calculate Result
 // ------------------------------
-function calculateResult() {
-  if (!currentExpression) return;
-
+function calculateExpression(expression) {
   try {
    
-    const display = document.getElementById("result");
-    let normalizedExpression = normalizeExpression(currentExpression);
+    let normalizedExpression = normalizeExpression(expression);
 
     // 🧠 Replace "ans" with last result automatically
     normalizedExpression = normalizedExpression.replace(
@@ -156,23 +153,32 @@ function calculateResult() {
 
     // Calculate result
     let result = eval(normalizedExpression);
-    console.log("Calculated result for expression:", currentExpression, "->", result);
+    console.log("Calculated result for expression:", expression, "->", result);
+ 
+    if (isNaN(result) || !isFinite(result)) {
+      throw new Error();
+    }
+
+    return result;
+  } catch (e) {
+    return "Error";
+  }
+}
+function calculateResult() {
+  if (!currentExpression) return;
+    const display = document.getElementById("result"); 
+    // Calculate result
+    let result = calculateExpression(currentExpression);
+    result = String(result);
+
     // Save result for future expressions
     LAST_RESULT = result;
 
     // Display normally
     display.value = result;
 
-    if (isNaN(result) || !isFinite(result)) {
-      throw new Error();
-    }
-
-    currentExpression = result.toString();
+    currentExpression = result;
     updateResult();
-  } catch (e) {
-    currentExpression = "Error";
-    updateResult();
-  }
 }
 
 
