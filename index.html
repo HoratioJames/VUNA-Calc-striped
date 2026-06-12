@@ -1,86 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Calculator</title>
+  <title>VUNA Basketball</title>
   <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/landing.css" />
 </head>
-
 <body>
-  <!-- Theme Toggle Button -->
-  <button class="btn btn-outline-secondary theme-toggle-btn" id="theme-toggle" onclick="toggleTheme()"
-    title="Toggle dark/light mode">
-    🌙
-  </button>
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-6 col-md-6 col-sm-8">
-        <div class="border border-dotted border-3 rounded-3 p-3 mb-4 bg-white bg-opacity-50">
-          <h4 class="text-center group-header mb-0">VUNA CALCULATOR</h4>
-          <p class="text-center text-small text-muted">
-            <i>Created by set 2025/26 Software Engineering</i>
-          </p>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="card calculator-card">
-              <div class="card-body p-4">
-                <div class="calculator">
-                  <div class="display-container">
-                    <input type="text" class="form-control" id="result" placeholder="0" disabled />
-                  </div>
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">🏀 VUNA Basketball</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-                  <div class="btn-grid">
-                    <button class="btn btn-light" onclick="bracketToResult('(')">(</button>
-                    <button class="btn btn-light" onclick="bracketToResult(')')">)</button>
-                    <button class="btn btn-light" onclick="backspace()">←</button>
+  <section class="hero d-flex align-items-center">
+    <div class="container text-center text-white">
+      <h1 class="display-3 fw-bold">Welcome to VUNA Basketball</h1>
+      <p class="lead mt-3">Empowering athletes, building champions — on and off the court.</p>
+      <a href="calculator/" class="btn btn-calculator btn-lg mt-4">Open Calculator</a>
+    </div>
+  </section>
 
-                    <!-- Row trig -->
-                    <button class="btn btn-action" onclick="clearResult()">AC</button>
+  <section id="about" class="py-5">
+    <div class="container text-center">
+      <h2 class="fw-bold mb-4">About Us</h2>
+      <p class="text-muted mx-auto" style="max-width: 700px;">
+        VUNA Basketball is dedicated to developing the next generation of basketball talent.
+        We provide training, analytics, and tools to help players reach their full potential.
+      </p>
+    </div>
+  </section>
 
-                    <!-- Row 2 -->
-                    <button class="btn btn-light" onclick="appendToResult(7)">7</button>
-                    <button class="btn btn-light" onclick="appendToResult(8)">8</button>
-                    <button class="btn btn-light" onclick="appendToResult(9)">9</button>
-
-                    <!-- Row 3 -->
-                    <button class="btn btn-operator" onclick="operatorToResult('/')">÷</button>
-                    <button class="btn btn-light" onclick="appendToResult(4)">4</button>
-                    <button class="btn btn-light" onclick="appendToResult(5)">5</button>
-                    <button class="btn btn-light" onclick="appendToResult(6)">6</button>
-
-                    <!-- Row 4 -->
-                    <button class="btn btn-operator" onclick="operatorToResult('*')">×</button>
-                    <button class="btn btn-light" onclick="appendToResult(1)">1</button>
-                    <button class="btn btn-light" onclick="appendToResult(2)">2</button>
-                    <button class="btn btn-light" onclick="appendToResult(3)">3</button>
-
-                    <!-- Row 5 -->
-                    <button class="btn btn-operator" onclick="operatorToResult('+')">+</button>
-                    <button class="btn btn-light" onclick="appendToResult('.')">.</button>
-                    <button class="btn btn-light" onclick="appendToResult(0)">0</button>
-                    <button class="btn btn-operator" onclick="percentToResult('%')">%</button>
-                    
-                    <!-- Row 9 -->
-                    <button class="btn btn-operator" onclick="operatorToResult('-')">−</button>
-
-                    <button class="btn btn-equals" onclick="calculateResult()" style="grid-column: span 4;">=</button>
-                  </div>
-                </div>
-              </div>
+  <section id="features" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="fw-bold text-center mb-5">Features</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card feature-card border-0 shadow-sm h-100">
+            <div class="card-body text-center p-4">
+              <div class="feature-icon mb-3">📊</div>
+              <h5 class="fw-bold">Performance Analytics</h5>
+              <p class="text-muted small">Track player stats, shot charts, and game performance with detailed analytics.</p>
             </div>
           </div>
-
-          <script src="assets/js/bootstrap.min.js"></script>
-          <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
-          <script src="assets/js/script.js"></script>
-          <button id="scroll-to-calculator" title="Back to Calculator">↑</button>
+        </div>
+        <div class="col-md-4">
+          <div class="card feature-card border-0 shadow-sm h-100">
+            <div class="card-body text-center p-4">
+              <div class="feature-icon mb-3">🏋️</div>
+              <h5 class="fw-bold">Training Programs</h5>
+              <p class="text-muted small">Structured training regimens designed by professional coaches.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card feature-card border-0 shadow-sm h-100">
+            <div class="card-body text-center p-4">
+              <div class="feature-icon mb-3">🧮</div>
+              <h5 class="fw-bold">Smart Calculator</h5>
+              <p class="text-muted small">Built-in scientific calculator for quick stats and percentages.</p>
+              <a href="calculator/" class="btn btn-outline-primary btn-sm mt-2">Try It</a>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section id="contact" class="py-5">
+    <div class="container text-center">
+      <h2 class="fw-bold mb-4">Contact Us</h2>
+      <p class="text-muted">Reach out to learn more about our programs.</p>
+      <p class="fw-bold mb-0">info@vunabasketball.com</p>
+    </div>
+  </section>
+
+  <footer class="py-4 text-center text-white">
+    <p class="mb-0 small">Created by set 2025/26 Software Engineering</p>
+  </footer>
+
+  <script src="assets/js/bootstrap.min.js"></script>
 </body>
-
 </html>
-
