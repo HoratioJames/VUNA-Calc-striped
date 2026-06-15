@@ -292,6 +292,37 @@ describe("percentToResult", () => {
   });
 });
 
+describe("reciprocal", () => {
+  test("returns 1/x for a number", () => {
+    currentExpression = "4";
+    reciprocal();
+    expect(currentExpression).toBe("0.25");
+  });
+
+  test("returns early on empty expression", () => {
+    reciprocal();
+    expect(currentExpression).toBe("");
+  });
+
+  test("returns early on zero", () => {
+    currentExpression = "0";
+    reciprocal();
+    expect(currentExpression).toBe("0");
+  });
+
+  test("handles expression evaluation", () => {
+    currentExpression = "2+2";
+    reciprocal();
+    expect(currentExpression).toBe("0.25");
+  });
+
+  test("updates display", () => {
+    currentExpression = "2";
+    reciprocal();
+    expect(document.getElementById("result").value).toBe("0.5");
+  });
+});
+
 describe("calculateResult", () => {
   test("calculates and updates display", () => {
     currentExpression = "2+3";

@@ -137,6 +137,16 @@ function percentToResult() {
   updateResult();
 }
 
+function reciprocal() {
+  if (!currentExpression) return;
+
+  let value = calculateExpression(currentExpression);
+  if (value === "Error" || parseFloat(value) === 0) return;
+
+  currentExpression = (1 / parseFloat(value)).toString();
+  updateResult();
+}
+
 // ------------------------------
 // Calculate Result
 // ------------------------------
